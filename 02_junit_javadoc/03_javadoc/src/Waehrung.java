@@ -1,16 +1,30 @@
-// TODO: JavaDoc
+/**
+ * Die Klasse Waehrung rechnet ein Quellenwährung in die Zielwährung um
+ * (Umrechnung von Währungen).
+ *
+ *@author Ibrahim
+ */
 public class Waehrung {
 
-    // TODO: JavaDoc
+    /**
+     * Wechselkurs zum Dollar.
+     */
     private final int kurs;
 
-    // TODO: JavaDoc
+    /**
+     * name Name der Währung. (z.B. EURO)
+     */
     private final String name;
 
-    // TODO: JavaDoc
+    /**
+     * kuerzel Kürzel der Währung. (z.B. €)
+     */
     private final String kuerzel;
 
-    // TODO: JavaDoc
+    /**
+     * Konstante um das Komma zu verschieben
+     * um Ganzahlberechnung durchführen zu können.
+     */
     private static final long TEILER = 10000;
 
     /**
@@ -26,28 +40,38 @@ public class Waehrung {
         this.kuerzel = kuerzel;
     }
 
-    // TODO: JavaDoc
+    /**
+     * @param betrag Betrag der umgewechselt wird.
+     * @param toWaehrung Währung die in Zielwährung gewechselt werden.
+     * @return Zielwährung wird ausgegeben.
+     */
     public long umrechnen(long betrag, Waehrung toWaehrung) {
         return betrag * kurs / toWaehrung.kurs;
     }
 
-    // TODO: JavaDoc
+    /**
+     * @return gibt den aktuellen Kurs für den Währung aus.
+     */
     public int getKurs() {
         return kurs;
     }
-    
-    // TODO: JavaDoc
+
+    /**
+     * @return gibt den Namen der Währung zurück.
+     */
     public String getName() {
         return name;
     }
 
-    // TODO: JavaDoc
+    /**
+     * @return gibt den Kürzel der Währung zurück.
+     */
     public String getKuerzel() {
         return kuerzel;
     }
 
     /**
-     * @see java.lang.Object#toString()
+     * @see java.lang.Object#toString().
      */
     @Override
     public String toString() {
@@ -57,7 +81,7 @@ public class Waehrung {
     }
 
     /**
-     * @see java.lang.Object#hashCode()
+     * @see java.lang.Object#hashCode().
      */
     @Override
     public int hashCode() {
@@ -72,7 +96,7 @@ public class Waehrung {
     }
 
     /**
-     * @see java.lang.Object#equals(java.lang.Object)
+     * @see java.lang.Object#equals(java.lang.Object).
      */
     @Override
     public boolean equals(Object obj) {
