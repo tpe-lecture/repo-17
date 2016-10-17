@@ -11,8 +11,7 @@ import de.smits_net.games.framework.sprite.Direction;
 /**
  * Ein Alien.
  */
-public class AlienSprite {
-// TODO: Von AnimatedSprite ableiten
+public class AlienSprite extends AnimatedSprite {
 
     /** Geschwindigkeit des Alien X-Richtung. */
     private static final int ALIEN_SPEED = 2;
@@ -24,19 +23,17 @@ public class AlienSprite {
      * @param startPoint Start-Position
      */
     public AlienSprite(Board board, Point startPoint) {
-// TODO: Einkommentieren
-//        super(board, startPoint, BoundaryPolicy.JUMP_BACK, new AlienImage());
-//        velocity.setVelocity(Direction.WEST, ALIEN_SPEED);
+        super(board, startPoint, BoundaryPolicy.JUMP_BACK, new AlienImage());
+        velocity.setVelocity(Direction.NORTHWEST, 2.0);
     }
 
     /**
      * Alien explodieren lassen.
      */
     public void explode() {
-// TODO: Einkommentieren
-//        setActive(false);
-//        setImages(new AnimatedImage(20,
-//                new StripedImage("assets/explosion", 43)));
-//        setInvisibleAfterFrames(70);
+        setActive(false);
+        setImages(new AnimatedImage(20,
+                new StripedImage("assets/explosion", 43)));
+        setInvisibleAfterFrames(70);
     }
 }
