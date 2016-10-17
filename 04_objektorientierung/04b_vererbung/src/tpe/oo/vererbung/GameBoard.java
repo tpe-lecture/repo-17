@@ -9,13 +9,11 @@ import java.awt.Point;
 import de.smits_net.games.framework.board.Board;
 import de.smits_net.games.framework.image.ImageBase;
 import de.smits_net.games.framework.sprite.Sprite;
-import de.smits_net.games.framework.sprite.Velocity;
 
 /**
  * Spielfeld.
  */
 public class GameBoard extends Board {
-// TODO: Von Board ableiten
 
     /** Alien, das durch das Bild läuft. */
     private AlienSprite alien;
@@ -29,9 +27,6 @@ public class GameBoard extends Board {
     /**
      * Erzeugt ein neues Board.
      */
-
-    private Graphics m;
-    
     public GameBoard() {
 
         // neues Spielfeld anlegen
@@ -40,15 +35,12 @@ public class GameBoard extends Board {
         // Hintergrundbild laden
         background = ImageBase.loadImage("assets/background.jpg");
 
-
-        // TODO: Alien und Asteroid anlegen und positionieren
-
-        asteroid = new Asteroid(this, new Point(100,100));
+        asteroid = new Asteroid(this, new Point(100, 100));
 //        asteroid.setVisible(true);
 //        asteroid.setActive(true);
 
 
-        alien = new AlienSprite(this, new Point(500,500));
+        alien = new AlienSprite(this, new Point(500, 500));
 //        alien.setVisible(true);
 //        alien.setActive(true);
 
@@ -56,6 +48,7 @@ public class GameBoard extends Board {
 
     /**
      * Hintergrund zeichnen.
+     * @param g objekt mit der Eigenschaft von Graphics.
      */
     protected void drawBackground(Graphics g) {
         g.drawImage(background, 0, 0, null);
@@ -67,8 +60,8 @@ public class GameBoard extends Board {
      * @param g Der Grafik-Kontext
      */
     public void drawGame(Graphics g) {
-      alien.draw(g);
-      asteroid.draw(g);
+        alien.draw(g);
+        asteroid.draw(g);
     }
 
     /**
@@ -79,12 +72,6 @@ public class GameBoard extends Board {
      */
     public boolean updateGame() {
 
-        // TODO: Die Objekte bewegen
-
-        // Kollision erkennen
-// TODO: Einkommentieren
-
-        boolean tryy = false;
         alien.move();
         asteroid.move();
 
@@ -94,8 +81,6 @@ public class GameBoard extends Board {
             alien.explode();
             asteroid.stop();
         }
- 
-
         return true;
     }
 }

@@ -13,7 +13,6 @@ public class GameMain extends MainWindow {
      * Neues Spiel anlegen.
      */
     public GameMain() {
-// TODO: Einkommentieren
 
         super("Poor Alien", new GameBoard());
     }

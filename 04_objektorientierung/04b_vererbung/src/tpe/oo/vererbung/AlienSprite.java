@@ -26,7 +26,6 @@ public class AlienSprite extends AnimatedSprite {
         super(board, startPoint, BoundaryPolicy.JUMP_BACK, new AlienImage());
         velocity.setVelocity(Direction.NORTHWEST, 2.0);
     }
-
     /**
      * Alien explodieren lassen.
      */
