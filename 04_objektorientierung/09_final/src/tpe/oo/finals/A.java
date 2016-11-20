@@ -8,7 +8,7 @@ public class A {
     /**
      * Konstante für die Vorzeichenumkehr.
      */
-    public static int KONSTANTE = 100;
+    public final static int KONSTANTE = 100;
 
     /**
      * Addiert zwei Zahlen. Wenn das Ergebnis größer ist als
@@ -19,7 +19,7 @@ public class A {
      * @param b zweiter Wert
      * @return Ergebnis
      */
-    public int add(int a, int b) {
+    public final int add(int a, int b) {
         int result = a + b;
 
         if (result > KONSTANTE) {
