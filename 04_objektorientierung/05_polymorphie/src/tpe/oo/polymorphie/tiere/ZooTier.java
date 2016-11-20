@@ -7,26 +7,27 @@ public class ZooTier {
 
     /** Zeigt an, ob das Tier hungrig ist. */
     private boolean hungrig = true;
-    
+
     /** Name des Tiers. */
     private String name;
-    
+
     /**
      * Legt ein neues Zootier an.
-     * 
+     *
      * @param name Name des Tiers
      */
+
     public ZooTier(String name) {
         this.name = name;
     }
-    
+
     /**
      * Gibt dem Tier futter.
      */
     public void fuettern() {
         hungrig = false;
     }
-    
+
     /**
      * @see java.lang.Object#toString()
      */
