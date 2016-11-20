@@ -60,8 +60,9 @@ public class GameBoard extends Board {
      * @param g Der Grafik-Kontext
      */
     public void drawGame(Graphics g) {
-        alien.draw(g);
         asteroid.draw(g);
+        alien.draw(g);
+
     }
 
     /**
@@ -74,8 +75,6 @@ public class GameBoard extends Board {
 
         alien.move();
         asteroid.move();
-
-
 
         if (alien.intersects(asteroid) && alien.isActive()) {
             alien.explode();
