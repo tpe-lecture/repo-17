@@ -14,7 +14,7 @@ public class B extends A {
      * @param b zweiter Wert
      * @return Ergebnis
      */
-    public static int sub(int a, int b) {
+    public final static int sub(int a, int b) {
         int result = a + b;
 
         return (result < KONSTANTE) ? (result * -1) : (result);
