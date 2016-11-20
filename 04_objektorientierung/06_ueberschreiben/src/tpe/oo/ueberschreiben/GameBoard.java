@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.MouseEvent;
 import java.util.Random;
 
 import de.smits_net.games.framework.board.Board;
@@ -45,6 +46,12 @@ public class GameBoard extends Board {
     @Override
     public boolean updateGame() {
         alien.move();
+
         return alien.isVisible();
     }
+    public void drawGameOver(Graphics g){
+        centerText(g, "Noob");
+   }
+
+
 }
