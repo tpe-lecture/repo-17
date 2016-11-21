@@ -18,7 +18,7 @@ public class TestWuerfel {
     @Test
     public void testAlles(){
         for(WuerfelTyp würfel : WuerfelTyp.values()){
-            internalTestFairness(new Wuerfel(würfel), würfel.average(würfel));
+            internalTestFairness(new Wuerfel(würfel), würfel.average());
         }
     }
 
