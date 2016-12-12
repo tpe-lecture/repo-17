@@ -9,8 +9,8 @@ import de.smits_net.games.framework.image.SimpleImage;
 /**
  * Ein Ufo.
  */
-public class Ufo extends SimpleImage {
-// TODO: Runnable implementieren
+public class Ufo extends SimpleImage implements Runnable {
+    // TODO: Runnable implementieren
 
     /** X-Position des Ufos. */
     private int x;
@@ -30,8 +30,8 @@ public class Ufo extends SimpleImage {
      * @param board das Spielfeld.
      * @param x die X-Position für den Start.
      * @param y die Y-Position für den Start.
-     * @param sleepTime Zeit, die das Ufo schlafen soll,
-     *          before es sich weiterbewegt.
+     * @param sleepTime Zeit, die das Ufo schlafen soll, before es sich
+     *            weiterbewegt.
      */
     public Ufo(Board board, int x, int y, int sleepTime) {
         super("assets/ufo");
@@ -50,9 +50,36 @@ public class Ufo extends SimpleImage {
         super.draw(g, new Point(x, y), null);
     }
 
+    @Override
+    public void run() {
+        while (true) {
+            if (this.x < board.getWidth()) {
+                this.x++;
+                try {
+                    Thread.sleep(this.sleepTime);
+                } catch (InterruptedException e) {
+                    System.err.println("Nobody knows!");
+                }
+            }
+            else {
+                x = -10;
+                if(y<board.getHeight()){
+                y +=100;
+                }
+                else {
+                    y=0;
+                }
+            }
+            // if (Thread.currentThread().isInterrupted()) {
+            // break;
+            // }
+        }
+
+    }
+
     // TODO: run-Methode schreiben in der Methode:
-    //       1. Ufo um eins in x-Richtung bewegen
-    //       2. für sleepTime Millisekunden schlafen
-    //       3. Schritt 1-2 wiederholen, solange Ufo noch auf
-    //          Spielfeld sichtbar ist
+    // 1. Ufo um eins in x-Richtung bewegen
+    // 2. für sleepTime Millisekunden schlafen
+    // 3. Schritt 1-2 wiederholen, solange Ufo noch auf
+    // Spielfeld sichtbar ist
 }

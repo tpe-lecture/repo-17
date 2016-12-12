@@ -10,8 +10,8 @@ import de.smits_net.games.framework.image.StripedImage;
 /**
  * Ein Ufo.
  */
-public class Ufo extends AnimatedImage {
-// TODO: Runnable implementieren
+public class Ufo extends AnimatedImage implements Runnable {
+    // TODO: Runnable implementieren
 
     /** X-Position des Ufos. */
     private int x;
@@ -31,8 +31,8 @@ public class Ufo extends AnimatedImage {
      * @param board das Spielfeld.
      * @param x die X-Position für den Start.
      * @param y die Y-Position für den Start.
-     * @param sleepTime Zeit, die das Ufo schlafen soll,
-     *          before es sich weiterbewegt.
+     * @param sleepTime Zeit, die das Ufo schlafen soll, before es sich
+     *            weiterbewegt.
      */
     public Ufo(Board board, int x, int y, int sleepTime) {
         super(50, false, "assets", "spaceship");
@@ -59,5 +59,25 @@ public class Ufo extends AnimatedImage {
     public void explode() {
         this.images = new StripedImage("assets/explosion", 43);
         this.images.setWrapAround(false);
+    }
+
+    @Override
+    public void run() {
+        while (true) {
+            if (this.x < board.getWidth()) {
+                this.x++;
+                try {
+                    Thread.sleep(this.sleepTime);
+                } catch (InterruptedException e) {
+                    break;
+                }
+                if (Thread.currentThread().isInterrupted()) {
+                    break;
+                }
+            } else {
+                this.x=0;
+            }
+        }
+        explode();
     }
 }

@@ -24,6 +24,7 @@ public class GameMain extends MainWindow {
     public static void main(String[] args) {
         // Spiel starten
         EventQueue.invokeLater(GameMain::new);
+        
     }
 }
 
