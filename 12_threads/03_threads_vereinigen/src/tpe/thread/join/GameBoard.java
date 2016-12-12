@@ -23,19 +23,23 @@ public class GameBoard extends Board {
          */
         public void run() {
 
-            // TODO: Threads vereinigen
-
-            // TODO: Ufos sprengen, wenn alle Threads zu Ende gekommen sind
+            for (int i = 0; i < threads.length; i++) {
+                try {
+                    threads[i].join();
+                } catch (InterruptedException e) {
+                    break;
+                }
+            }
+         // TODO: Ufos sprengen, wenn alle Threads zu Ende gekommen sind
+            for (int i = 0; i < ufos.length; i++) {
+                ufos[i].explode();
+            }
         }
     }
 
     /** Ufos, die durch das Bild fliegen. */
-    private Ufo[] ufos = {
-        new Ufo(this, 0, 30, 2),
-        new Ufo(this, 20, 100, 5),
-        new Ufo(this, 30, 170, 8),
-        new Ufo(this, 10, 230, 3),
-    };
+    private Ufo[] ufos = { new Ufo(this, 0, 30, 2), new Ufo(this, 20, 100, 5),
+            new Ufo(this, 30, 170, 8), new Ufo(this, 10, 230, 3), };
 
     /** Hintergrund-Bild. */
     private SimpleImage background = new SimpleImage("assets/background-2");
